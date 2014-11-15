@@ -3,7 +3,7 @@
 This is a slightly updated version of [NIST Statistical Test Suite (STS)](http://csrc.nist.gov/groups/ST/toolkit/rng/documentation_software.html) tool for randomness testing. Main reason for this fork is that the original source code provided by NIST doesn't compile cleanly on Windows using MSVC. Main reason is that MSVC doesn't provide erf() and erfc() functions in standard math library. I've added implementation of these functions and created a project file. You should be now able to compile STS using standard Microsoft Visual C/C++ suite.
 
 ##Building
-This version should compile cleanly under MSVC 2008. I haven't tested it under other versions and MSVC Express, but it's ANSI C so it should work.
+This version should compile cleanly under MSVC 2013. I haven't tested it under other versions and MSVC Express, but it's ANSI C so it should work.
 
 The solution is configured to compile using extended instruction set (SSE2) and optimize for speed.
 
