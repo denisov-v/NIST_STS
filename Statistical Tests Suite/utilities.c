@@ -12,8 +12,6 @@ U T I L I T I E S
 #include "../include/generators.h"
 #include "../include/stat_fncs.h"
 
-double test_time = 0;
-
 int
 displayGeneratorOptions()
 {
@@ -242,7 +240,6 @@ fileBasedBitStreams(char *streamFile)
 	printf("\n");
 	
 	double start_time = omp_get_wtime();
-	//printf("     Start time: %.3f s\n\n", start_time);
 
 	if ( mode == 0 ) {
 		if ( (fp = fopen(streamFile, "r")) == NULL ) {
@@ -261,9 +258,7 @@ fileBasedBitStreams(char *streamFile)
 		fclose(fp);
 	}
 	
-	double end_time = omp_get_wtime();
-	//printf("     End time: %.3f s\n", end_time);
-	test_time = end_time - start_time;
+	test_time = omp_get_wtime() - start_time;
 	printf("     Test time: %.3f s\n\n", test_time);
 }
 
