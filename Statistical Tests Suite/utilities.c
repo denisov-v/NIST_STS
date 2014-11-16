@@ -479,6 +479,42 @@ nist_test_suite()
 		{
 #pragma omp section
 			{
+				if ((testVector[0] == 1) || (testVector[TEST_LINEARCOMPLEXITY] == 1))
+					LinearComplexity(tp.linearComplexitySequenceLength, tp.n);
+			}
+
+#pragma omp section
+			{
+				if ((testVector[0] == 1) || (testVector[TEST_NONPERIODIC] == 1))
+					NonOverlappingTemplateMatchings(tp.nonOverlappingTemplateBlockLength, tp.n);
+			}
+
+#pragma omp section
+			{
+				if ((testVector[0] == 1) || (testVector[TEST_SERIAL] == 1))
+					Serial(tp.serialBlockLength, tp.n);
+			}
+
+#pragma omp section
+			{
+				if ((testVector[0] == 1) || (testVector[TEST_FFT] == 1))
+					DiscreteFourierTransform(tp.n);
+			}
+
+#pragma omp section
+			{
+				if ((testVector[0] == 1) || (testVector[TEST_UNIVERSAL] == 1))
+					Universal(tp.n);
+			}
+
+#pragma omp section
+			{
+				if ((testVector[0] == 1) || (testVector[TEST_APEN] == 1))
+					ApproximateEntropy(tp.approximateEntropyBlockLength, tp.n);
+			}
+
+#pragma omp section
+			{
 				if ((testVector[0] == 1) || (testVector[TEST_FREQUENCY] == 1))
 					Frequency(tp.n);
 			}
@@ -515,32 +551,8 @@ nist_test_suite()
 
 #pragma omp section
 			{
-				if ((testVector[0] == 1) || (testVector[TEST_FFT] == 1))
-					DiscreteFourierTransform(tp.n);
-			}
-
-#pragma omp section
-			{
-				if ((testVector[0] == 1) || (testVector[TEST_NONPERIODIC] == 1))
-					NonOverlappingTemplateMatchings(tp.nonOverlappingTemplateBlockLength, tp.n);
-			}
-
-#pragma omp section
-			{
 				if ((testVector[0] == 1) || (testVector[TEST_OVERLAPPING] == 1))
 					OverlappingTemplateMatchings(tp.overlappingTemplateBlockLength, tp.n);
-			}
-
-#pragma omp section
-			{
-				if ((testVector[0] == 1) || (testVector[TEST_UNIVERSAL] == 1))
-					Universal(tp.n);
-			}
-
-#pragma omp section
-			{
-				if ((testVector[0] == 1) || (testVector[TEST_APEN] == 1))
-					ApproximateEntropy(tp.approximateEntropyBlockLength, tp.n);
 			}
 
 #pragma omp section
@@ -553,18 +565,6 @@ nist_test_suite()
 			{
 				if ((testVector[0] == 1) || (testVector[TEST_RND_EXCURSION_VAR] == 1))
 					RandomExcursionsVariant(tp.n);
-			}
-
-#pragma omp section
-			{
-				if ((testVector[0] == 1) || (testVector[TEST_SERIAL] == 1))
-					Serial(tp.serialBlockLength, tp.n);
-			}
-
-#pragma omp section
-			{
-				if ((testVector[0] == 1) || (testVector[TEST_LINEARCOMPLEXITY] == 1))
-					LinearComplexity(tp.linearComplexitySequenceLength, tp.n);
 			}
 		}
 	}
