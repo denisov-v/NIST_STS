@@ -242,7 +242,7 @@ fileBasedBitStreams(char *streamFile)
 	printf("\n");
 	
 	double start_time = omp_get_wtime();
-	printf("     Start time: %.3f s\n\n", start_time);
+	//printf("     Start time: %.3f s\n\n", start_time);
 
 	if ( mode == 0 ) {
 		if ( (fp = fopen(streamFile, "r")) == NULL ) {
@@ -262,9 +262,9 @@ fileBasedBitStreams(char *streamFile)
 	}
 	
 	double end_time = omp_get_wtime();
-	printf("     End time: %.3f s\n", end_time);
+	//printf("     End time: %.3f s\n", end_time);
 	test_time = end_time - start_time;
-	printf("     Time elapsed: %.3f s\n\n", test_time);
+	printf("     Test time: %.3f s\n\n", test_time);
 }
 
 

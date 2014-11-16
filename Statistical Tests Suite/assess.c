@@ -281,7 +281,7 @@ postProcessResults(int option)
 	fprintf(summary, "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n");
 	if (test_time > 0)
 	{
-		fprintf(summary, "Total test time:  %.3f s\n", test_time);
+		fprintf(summary, "Test time:  %.3f s\n", test_time);
 		fprintf(summary, "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n");
 	}
 }
