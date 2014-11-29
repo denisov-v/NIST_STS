@@ -22,7 +22,7 @@ NonOverlappingTemplateMatchings(int m, int n)
 	position in the numOfTemplates variable.
 	----------------------------------------------------------------------------*/
 	unsigned int	bit, W_obs, nu[6], *Wj = NULL; 
-	FILE			*fp;
+	FILE			*fp = NULL;
 	double			sum, chi2, p_value, lambda, pi[6], varWj;
 	int				i, j, jj, k, match, SKIP, M, N, K = 5;
 	char			directory[100];
@@ -100,8 +100,10 @@ NonOverlappingTemplateMatchings(int m, int n)
 							break;
 						}
 					}
-					if ( match == 1 )
+					if ( match == 1 ) {
 						W_obs++;
+                        j += m-1;
+                    }
 				}
 				Wj[i] = W_obs;
 			}
@@ -131,5 +133,6 @@ NonOverlappingTemplateMatchings(int m, int n)
 		free(sequence);
 
 	free(Wj);
-	fclose(fp);
+    if ( fp != NULL )
+        fclose(fp);
 }
